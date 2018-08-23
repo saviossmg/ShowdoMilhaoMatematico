@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/nomeal_campos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/nomeal_nome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:backgroundTint="@android:color/white"
+            android:ems="10"
+            android:focusable="auto"
+            android:focusableInTouchMode="true"
+            android:hint="@string/nome_nometxt"
+            android:inputType="textPersonName"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/darker_gray"
+            android:textColorLink="@android:color/white" />
+
+        <EditText
+            android:id="@+id/nomeal_serie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:backgroundTint="@android:color/white"
+            android:ems="10"
+            android:focusable="auto"
+            android:hint="@string/nome_serietxt"
+            android:inputType="textPersonName"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/darker_gray"
+            android:textColorLink="@android:color/white" />
+
+        <LinearLayout
+            android:id="@+id/nomeale_btns"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="15dp"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/nomeal_btnnao"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_vermelho"
+                    android:text="@string/nome_sair"
+                    android:textColor="@android:color/white"
+                    app:autoSizeMaxTextSize="18dp"
+                    app:autoSizeMinTextSize="6dp"
+                    app:autoSizeStepGranularity="2dp"
+                    app:autoSizeTextType="uniform"
+                    tools:ignore="MissingPrefix" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="15dp"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/nomeal_btnsim"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_verde"
+                    android:text="@string/nome_jogo"
+                    android:textColor="@android:color/white"
+                    app:autoSizeMaxTextSize="18dp"
+                    app:autoSizeMinTextSize="6dp"
+                    app:autoSizeStepGranularity="2dp"
+                    app:autoSizeTextType="uniform"
+                    tools:ignore="MissingPrefix" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</ScrollView>

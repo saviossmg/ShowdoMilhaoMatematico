@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fundo"
+    tools:context="com.saviosvm.showdomilhaomatemtico.view.Nome"
+    tools:layout_editor_absoluteY="81dp">
+
+
+    <TextView
+        android:id="@+id/nome_nomel"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="@string/nome_nome"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:autoSizeMaxTextSize="24dp"
+        app:autoSizeMinTextSize="10dp"
+        app:autoSizeStepGranularity="2dp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="@+id/nome_horizontal_h20"
+        app:layout_constraintEnd_toEndOf="@+id/nome_vertical_v30"
+        app:layout_constraintStart_toStartOf="@+id/nome_vertical_v10"
+        app:layout_constraintTop_toTopOf="@+id/nome_horizontal_h10"
+        tools:ignore="MissingPrefix" />
+
+    <EditText
+        android:id="@+id/nome_nome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@android:color/white"
+        android:ems="10"
+        android:focusable="auto"
+        android:focusableInTouchMode="true"
+        android:hint="@string/nome_nometxt"
+        android:inputType="textPersonName"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/darker_gray"
+        android:textColorLink="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/nome_horizontal_h20"
+        app:layout_constraintEnd_toEndOf="@+id/nome_vertical_v90"
+        app:layout_constraintStart_toStartOf="@+id/nome_vertical_v35"
+        app:layout_constraintTop_toTopOf="@+id/nome_horizontal_h10" />
+
+    <TextView
+        android:id="@+id/nome_seriel"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:focusable="false"
+        android:focusableInTouchMode="true"
+        android:gravity="center"
+        android:text="@string/nome_serie"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:autoSizeMaxTextSize="24dp"
+        app:autoSizeMinTextSize="10dp"
+        app:autoSizeStepGranularity="2dp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="@+id/nome_horizontal_h40"
+        app:layout_constraintEnd_toEndOf="@+id/nome_vertical_v30"
+        app:layout_constraintStart_toStartOf="@+id/nome_vertical_v10"
+        app:layout_constraintTop_toTopOf="@+id/nome_horizontal_h30"
+        tools:ignore="MissingPrefix" />
+
+    <EditText
+        android:id="@+id/nome_serie"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@android:color/white"
+        android:ems="10"
+        android:focusable="auto"
+        android:hint="@string/nome_serietxt"
+        android:inputType="textPersonName"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/darker_gray"
+        android:textColorLink="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/nome_horizontal_h40"
+        app:layout_constraintEnd_toEndOf="@+id/nome_vertical_v90"
+        app:layout_constraintStart_toStartOf="@+id/nome_vertical_v35"
+        app:layout_constraintTop_toTopOf="@+id/nome_horizontal_h30"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/nome_nivell"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:focusable="false"
+        android:focusableInTouchMode="true"
+        android:gravity="center"
+        android:text="@string/nome_nivel"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:autoSizeMaxTextSize="24dp"
+        app:autoSizeMinTextSize="10dp"
+        app:autoSizeStepGranularity="2dp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="@+id/nome_horizontal_h60"
+        app:layout_constraintEnd_toEndOf="@+id/nome_vertical_v30"
+        app:layout_constraintStart_toStartOf="@+id/nome_vertical_v10"
+        app:layout_constraintTop_toTopOf="@+id/nome_horizontal_h50"
+        tools:ignore="MissingPrefix" />
+
+    <Spinner
+        android:id="@+id/nome_nivelspi"
+        android:layout_width="0dp"
+        android:layout_height="24dp"
+        android:backgroundTint="@color/cortexto"
+        android:isScrollContainer="false"
+        android:popupBackground="@color/btncinza"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/darker_gray"
+        app:layout_constraintBottom_toBottomOf="@+id/nome_horizontal_h60"
+        app:layout_constraintEnd_toEndOf="@+id/nome_vertical_v90"
+        app:layout_constraintStart_toStartOf="@+id/nome_vertical_v35"
+        app:layout_constraintTop_toTopOf="@+id/nome_horizontal_h50" />
+
+    <Button
+        android:id="@+id/nome_iniciar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/btn_verde"
+        android:onClick="clickIniciar"
+        android:text="@string/nome_jogo"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:autoSizeMaxTextSize="30dp"
+        app:autoSizeMinTextSize="10dp"
+        app:autoSizeStepGranularity="2dp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="@+id/nome_horizontal_h80"
+        app:layout_constraintEnd_toEndOf="@+id/nome_vertical_v65"
+        app:layout_constraintStart_toStartOf="@+id/nome_vertical_v35"
+        app:layout_constraintTop_toTopOf="@+id/nome_horizontal_h70"
+        tools:ignore="MissingPrefix"
+        tools:text="@string/nome_jogo" />
+
+    <!-- horizontal -->
+    <android.support.constraint.Guideline
+        android:id="@+id/nome_horizontal_h05"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/nome_horizontal_h10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.10" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/nome_horizontal_h20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.20" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/nome_horizontal_h30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.30" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/nome_horizontal_h40"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.40" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/nome_horizontal_h50"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.50" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/nome_horizontal_h60"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.60" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/nome_horizontal_h70"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.70" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/nome_horizontal_h80"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.80" />
+
+    <!-- vertical -->
+    <android.support.constraint.Guideline
+        android:id="@+id/nome_vertical_v10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.10" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/nome_vertical_v30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.30" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/nome_vertical_v35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.35" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/nome_vertical_v65"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.65" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/nome_vertical_v90"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.90" />
+
+</android.support.constraint.ConstraintLayout>

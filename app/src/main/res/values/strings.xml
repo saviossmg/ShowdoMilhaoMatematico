@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Show do Milhão Matemático</string>
+    <string name="principal_jogo">Novo Jogo</string>
+    <string name="principal_regra">Regras do Jogo</string>
+    <string name="principal_placar">Placares</string>
+    <string name="principal_sobre">Sobre</string>
+    <string name="nome_nome">Jogador(a)</string>
+    <string name="nome_serie">Classe</string>
+    <string name="nome_nivel">Nível</string>
+    <string name="nome_nometxt">Nome do(a) Jogador(a)</string>
+    <string name="nome_serietxt">A classe e ano</string>
+    <string name="nome_aviso">Antes de iniciar, insira...</string>
+    <string name="nome_jogo">Iniciar Jogo!</string>
+    <string name="nome_sair">Voltar</string>
+    <string name="placar_posicao">Pos</string>
+    <string name="placar_jogador">Jogador(a)</string>
+    <string name="placar_acerto">Acertos</string>
+    <string name="placar_ponto">Pontos</string>
+    <string name="regra_titulo">Regras do Jogo</string>
+    <string name="alertconfirm_sim">Sim!</string>
+    <string name="alertconfirm_nao">Não...</string>
+</resources>

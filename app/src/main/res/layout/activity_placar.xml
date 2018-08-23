@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fundo"
+    tools:context="com.saviosvm.showdomilhaomatemtico.view.Placar">
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:autoSizeMaxTextSize="30dp"
+        android:autoSizeMinTextSize="10dp"
+        android:autoSizeTextType="uniform"
+        android:background="@color/btnvermelho"
+        android:gravity="center"
+        android:text="@string/placar_posicao"
+        android:textAlignment="gravity"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/placar_guideline_h15"
+        app:layout_constraintEnd_toEndOf="@+id/placar_guideline_v10"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/placar_guideline_h05" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:autoSizeMaxTextSize="30dp"
+        android:autoSizeMinTextSize="10dp"
+        android:autoSizeTextType="uniform"
+        android:background="@color/btnvermelho"
+        android:gravity="center"
+        android:text="@string/placar_jogador"
+        android:textAlignment="gravity"
+        android:textColor="@android:color/white"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/placar_guideline_h15"
+        app:layout_constraintEnd_toStartOf="@+id/placar_guideline_v50"
+        app:layout_constraintHorizontal_bias="0.341"
+        app:layout_constraintStart_toStartOf="@+id/placar_guideline_v10"
+        app:layout_constraintTop_toTopOf="@+id/placar_guideline_h05"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:autoSizeMaxTextSize="30dp"
+        android:autoSizeMinTextSize="10dp"
+        android:autoSizeTextType="uniform"
+        android:background="@color/btnvermelho"
+        android:gravity="center"
+        android:text="@string/placar_acerto"
+        android:textAlignment="gravity"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/placar_guideline_h15"
+        app:layout_constraintEnd_toEndOf="@+id/placar_guideline_v60"
+        app:layout_constraintStart_toStartOf="@+id/placar_guideline_v50"
+        app:layout_constraintTop_toTopOf="@+id/placar_guideline_h05" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:autoSizeMaxTextSize="30dp"
+        android:autoSizeMinTextSize="10dp"
+        android:autoSizeTextType="uniform"
+        android:background="@color/btnvermelho"
+        android:gravity="center"
+        android:text="Tempo/Média"
+        android:textAlignment="gravity"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/placar_guideline_h15"
+        app:layout_constraintEnd_toEndOf="@+id/placar_guideline_v75"
+        app:layout_constraintStart_toStartOf="@+id/placar_guideline_v60"
+        app:layout_constraintTop_toTopOf="@+id/placar_guideline_h05" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:autoSizeMaxTextSize="30dp"
+        android:autoSizeMinTextSize="10dp"
+        android:autoSizeTextType="uniform"
+        android:background="@color/btnvermelho"
+        android:gravity="center"
+        android:text="Faltas"
+        android:textAlignment="gravity"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/placar_guideline_h15"
+        app:layout_constraintEnd_toEndOf="@+id/placar_guideline_v85"
+        app:layout_constraintStart_toStartOf="@+id/placar_guideline_v75"
+        app:layout_constraintTop_toTopOf="@+id/placar_guideline_h05" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:autoSizeMaxTextSize="30dp"
+        android:autoSizeMinTextSize="10dp"
+        android:autoSizeTextType="uniform"
+        android:background="@color/btnvermelho"
+        android:gravity="center"
+        android:text="@string/placar_ponto"
+        android:textAlignment="gravity"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/placar_guideline_h15"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/placar_guideline_v85"
+        app:layout_constraintTop_toTopOf="@+id/placar_guideline_h05" />
+
+    <ListView
+        android:id="@+id/placar_lista"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/transparente"
+        app:layout_constraintBottom_toBottomOf="@+id/placar_guideline_h95"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/placar_guideline_h15" />
+
+    <!-- horizontal -->
+    <android.support.constraint.Guideline
+        android:id="@+id/placar_guideline_h05"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/placar_guideline_h15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/placar_guideline_h95"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <!-- vertical -->
+
+    <android.support.constraint.Guideline
+        android:id="@+id/placar_guideline_v10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.10" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/placar_guideline_v50"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.50" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/placar_guideline_v60"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.60" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/placar_guideline_v75"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.75"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/placar_guideline_v80"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.80" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/placar_guideline_v85"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.85" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/placar_guideline_v90"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.90" />
+
+</android.support.constraint.ConstraintLayout>
+

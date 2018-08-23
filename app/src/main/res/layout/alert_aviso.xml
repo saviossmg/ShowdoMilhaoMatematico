@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/aa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/avisosal_campos"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/avisoal_txtnome"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="convidados/plateia"
+                android:textColor="@android:color/white"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/avisoal_txtaviso"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="texto de aviso"
+                android:textColor="@android:color/white"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/avisoal_btnok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_cinza"
+                android:textColor="@android:color/white"
+                app:autoSizeMaxTextSize="18dp"
+                app:autoSizeMinTextSize="6dp"
+                app:autoSizeStepGranularity="2dp"
+                app:autoSizeTextType="uniform"
+                tools:ignore="MissingPrefix" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+
+
+</ScrollView>

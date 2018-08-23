@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/spinner_estilo"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:maxLines="1"
+    android:textColor="@color/cortexto"
+    android:textColorHint="@color/corhint"
+    app:autoSizeMaxTextSize="24dp"
+    app:autoSizeMinTextSize="16dp"
+    app:autoSizeStepGranularity="2dp"
+    app:autoSizeTextType="uniform">
+
+</TextView>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fundo"
+    tools:context="com.saviosvm.showdomilhaomatemtico.view.Cartas">
+
+    <Button
+        android:id="@+id/cartas_carta1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/as"
+        app:layout_constraintBottom_toBottomOf="@+id/cartas_horizontal_h82"
+        app:layout_constraintEnd_toEndOf="@+id/cartas_vertical_v255"
+        app:layout_constraintStart_toStartOf="@id/cartas_vertical_v055"
+        app:layout_constraintTop_toTopOf="@id/cartas_horizontal_h18" />
+
+    <Button
+        android:id="@+id/cartas_carta2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/dois"
+        app:layout_constraintBottom_toBottomOf="@+id/cartas_horizontal_h82"
+        app:layout_constraintEnd_toEndOf="@+id/cartas_vertical_v485"
+        app:layout_constraintStart_toStartOf="@id/cartas_vertical_v285"
+        app:layout_constraintTop_toTopOf="@id/cartas_horizontal_h18" />
+
+    <Button
+        android:id="@+id/cartas_carta3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/tres"
+        app:layout_constraintBottom_toBottomOf="@+id/cartas_horizontal_h82"
+        app:layout_constraintEnd_toEndOf="@+id/cartas_vertical_v715"
+        app:layout_constraintStart_toStartOf="@id/cartas_vertical_v515"
+        app:layout_constraintTop_toTopOf="@id/cartas_horizontal_h18" />
+
+    <Button
+        android:id="@+id/cartas_carta4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/rei"
+        app:layout_constraintBottom_toBottomOf="@+id/cartas_horizontal_h82"
+        app:layout_constraintEnd_toEndOf="@+id/cartas_vertical_v945"
+        app:layout_constraintStart_toStartOf="@id/cartas_vertical_v745"
+        app:layout_constraintTop_toTopOf="@id/cartas_horizontal_h18" />
+
+    <!-- horizontal -->
+    <android.support.constraint.Guideline
+        android:id="@+id/cartas_horizontal_h15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/cartas_horizontal_h18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.18" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/cartas_horizontal_h82"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.83" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/cartas_horizontal_h85"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.85" />
+
+    <!-- vertical -->
+    <android.support.constraint.Guideline
+        android:id="@+id/cartas_vertical_v055"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.055" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/cartas_vertical_v255"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.255" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/cartas_vertical_v285"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.285" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/cartas_vertical_v485"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.485" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/cartas_vertical_v515"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.515" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/cartas_vertical_v715"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.715" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/cartas_vertical_v745"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.745" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/cartas_vertical_v945"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.945" />
+
+
+
+</android.support.constraint.ConstraintLayout>
