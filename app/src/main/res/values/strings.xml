@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Show do Milhão Matemático</string>
     <string name="principal_jogo">Novo Jogo</string>
-    <string name="principal_regra">Regras do Jogo</string>
-    <string name="principal_placar">Placares</string>
+    <string name="principal_regra">Regras</string>
+    <string name="principal_placar">Placar</string>
     <string name="principal_sobre">Sobre</string>
     <string name="nome_nome">Jogador(a)</string>
     <string name="nome_serie">Classe</string>
@@ -19,4 +19,14 @@
     <string name="regra_titulo">Regras do Jogo</string>
     <string name="alertconfirm_sim">Sim!</string>
     <string name="alertconfirm_nao">Não...</string>
+    <string name="regrasl1">O jogo consiste em três rodadas e uma pergunta final, totalizando 16 perguntas. As perguntas são separadas por nível (ano), com todos os níveis possuindo 4 Cards – o ultimo, sendo da pergunta final.</string>
+    <string name="regrasl2">Cada card possuí 5 perguntas, com pontuações distintas e cumulativas – a exceção da pergunta final. As perguntas são distribuídas da seguinte forma:</string>
+    <string name="regrasl3">A pontuação será dada conforme o acerto, a interrupção ou o erro do candidato. O acerto dará continuidade ao jogo, parar dará metade da pontuação da rodada enquanto o erro causará a eliminação do candidato com ¼ da pontuação da rodada.</string>
+    <string name="regrasl4">Durante o jogo o candidato poderá contar com vários tipos de ajuda, exceto na pergunta final, aonde todo tipo de ajuda será desabilitada.</string>
+    <string name="regrasl5">Todas as perguntas terão 1 minuto para serem respondidas, caso o tempo acabe o participante não será eliminado, mas levará uma penalidade. Essa penalidade será utilizada como critério de classificação. O critério de classificação será dado conforme a tabela:</string>
+    <string name="regrasconvidados">Membros convidados darão suas respostas à pergunta e cabe ao participante confiar ou não.</string>
+    <string name="regrasplacas">A plateia levantará placas numeradas, referentes à alternativa correta. Por exemplo, para a terceira alternativa, levantavam a placa de número 3. Cabe ao participante decidir se concordava com a maioria das alternativas ou não.</string>
+    <string name="regrascartas">Quatro cartas de baralho serão viradas e o participante escolherá uma. Se tirar o Rei, nenhuma alternativa errada será eliminada. Ás eliminará uma alternativa, 2 eliminará duas alternativas e 3 eliminará todas as três alternativas erradas, restando apenas a correta.</string>
+    <string name="regraspulos">O participante poderá "pular" a pergunta caso não saiba a resposta. Esse recurso pode ser utilizado até três vezes.</string>
+
 </resources>

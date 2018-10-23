@@ -37,10 +37,1117 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:layout_marginLeft="10px"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/placartxt01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20px"
+                android:gravity="center"
+                android:text="@string/regrasl1"
+                android:textAlignment="textStart"
+                android:textColor="@android:color/white"
+                app:autoSizeMaxTextSize="30dp"
+                app:autoSizeMinTextSize="10dp"
+                app:autoSizeStepGranularity="2dp"
+                app:autoSizeTextType="uniform"
+                tools:ignore="MissingPrefix" />
+
+            <TextView
+                android:id="@+id/placartxt02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40px"
+                android:gravity="center"
+                android:text="@string/regrasl2"
+                android:textAlignment="textStart"
+                android:textColor="@android:color/white"
+                app:autoSizeMaxTextSize="30dp"
+                app:autoSizeMinTextSize="10dp"
+                app:autoSizeStepGranularity="2dp"
+                app:autoSizeTextType="uniform"
+                tools:ignore="MissingPrefix" />
+
+            <LinearLayout
+                android:id="@+id/placar_cel1"
+                android:layout_width="400dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="40px"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/placar_cel1a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5px"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="CARD"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold|italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="0.7"
+                        android:gravity="center"
+                        android:text="PERGUNTAS"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold|italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="0.5"
+                        android:gravity="center"
+                        android:text="PONTUAÇÃO"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold|italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/placar_cel1b"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="1"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="0.7"
+                        android:gravity="center"
+                        android:text="5 perguntas"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="0.5"
+                        android:gravity="center"
+                        android:text="1 mil pontos cumulativos"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/placar_cel1c"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="2"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="0.7"
+                        android:gravity="center"
+                        android:text="5 Perguntas"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="0.5"
+                        android:gravity="center"
+                        android:text="10 mil pontos cumulativos"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/placar_cel1d"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="3"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="0.7"
+                        android:gravity="center"
+                        android:text="5 Perguntas"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="0.5"
+                        android:gravity="center"
+                        android:text="100 mil pontos cumulativos"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/placar_cel1e"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="4"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="0.7"
+                        android:gravity="center"
+                        android:text="1 Pergunta"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="0.5"
+                        android:gravity="center"
+                        android:text="1 Milhão de pontos"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/placartxt03"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40px"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/regrasl3"
+                android:textAlignment="textStart"
+                android:textColor="@android:color/white"
+                app:autoSizeMaxTextSize="30dp"
+                app:autoSizeMinTextSize="10dp"
+                app:autoSizeStepGranularity="2dp"
+                app:autoSizeTextType="uniform"
+                tools:ignore="MissingPrefix" />
+
+            <LinearLayout
+                android:id="@+id/placar_cel2"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="40px"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/placar_cel2a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20px"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="AÇÃO"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold|italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="PONTUAÇÃO"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold|italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/placar_cel2b"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20px"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Acertar"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="100%"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/placar_cel2c"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20px"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Parar"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="50%"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/placar_cel2d"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20px"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Errar"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="25%"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/placartxt04"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40px"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/regrasl4"
+                android:textAlignment="textStart"
+                android:textColor="@android:color/white"
+                app:autoSizeMaxTextSize="30dp"
+                app:autoSizeMinTextSize="10dp"
+                app:autoSizeStepGranularity="2dp"
+                app:autoSizeTextType="uniform"
+                tools:ignore="MissingPrefix" />
+
+            <LinearLayout
+                android:id="@+id/placar_cel3"
+                android:layout_width="500dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="40px"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/placar_cel3a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20px"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="AJUDA"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold|italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="0.7"
+                        android:gravity="center"
+                        android:text="DESCRIÇÃO"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold|italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/placar_cel3b"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20px"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Convidados"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="0.7"
+                        android:gravity="center"
+                        android:text="@string/regrasconvidados"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/placar_cel3c"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20px"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Placas"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="0.7"
+                        android:gravity="center"
+                        android:text="@string/regrasplacas"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/placar_cel3d"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20px"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Cartas"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="0.7"
+                        android:gravity="center"
+                        android:text="@string/regrascartas"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/placar_cel3e"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20px"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Pulos"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="0.7"
+                        android:gravity="center"
+                        android:text="@string/regraspulos"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/placartxt05"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40px"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/regrasl5"
+                android:textAlignment="textStart"
+                android:textColor="@android:color/white"
+                app:autoSizeMaxTextSize="30dp"
+                app:autoSizeMinTextSize="10dp"
+                app:autoSizeStepGranularity="2dp"
+                app:autoSizeTextType="uniform"
+                tools:ignore="MissingPrefix" />
+
+            <LinearLayout
+                android:id="@+id/placar_cel4"
+                android:layout_width="500dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20px"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/placar_cel4a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20px"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="CRITERIO"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold|italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="0.7"
+                        android:gravity="center"
+                        android:text="AVALIAÇÃO"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold|italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/placar_cel4b"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20px"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Pontuação"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="0.7"
+                        android:gravity="center"
+                        android:text="Maior para a menor."
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/placar_cel4c"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20px"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Acertos"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="0.7"
+                        android:gravity="center"
+                        android:text="Maior para a menor."
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/placar_cel4d"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20px"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Faltas"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="0.7"
+                        android:gravity="center"
+                        android:text="Menor para a maior."
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/placar_cel4e"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20px"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Tempo Total"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="0.7"
+                        android:gravity="center"
+                        android:text="Menor para a maior."
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/placar_cel4f"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20px"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Media Tempo"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="0.7"
+                        android:gravity="center"
+                        android:text="Menor para a maior."
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/placar_cel4g"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20px"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Todos iguais"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_weight="0.7"
+                        android:gravity="center"
+                        android:text="Prevalece o primeiro que jogou."
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textStyle="italic"
+                        app:autoSizeMaxTextSize="30dp"
+                        app:autoSizeMinTextSize="10dp"
+                        app:autoSizeStepGranularity="2dp"
+                        app:autoSizeTextType="uniform"
+                        tools:ignore="MissingPrefix" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
     </ScrollView>
 
     <!-- horizontal -->
+
     <android.support.constraint.Guideline
         android:id="@+id/regra_horizontal_h05"
         android:layout_width="0dp"

@@ -14,13 +14,16 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.saviosvm.showdomilhaomatemtico.AndGraph.AGSoundManager;
 import com.saviosvm.showdomilhaomatemtico.R;
+import com.saviosvm.showdomilhaomatemtico.controler.Efeitos;
 import com.saviosvm.showdomilhaomatemtico.controler.JogadorC;
 import com.saviosvm.showdomilhaomatemtico.model.JogadorM;
 import com.saviosvm.showdomilhaomatemtico.model.PerguntaM;
 import com.saviosvm.showdomilhaomatemtico.model.PontuacaoM;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Jogo extends AppCompatActivity implements View.OnClickListener {
@@ -45,6 +48,7 @@ public class Jogo extends AppCompatActivity implements View.OnClickListener {
     private TextView sairVal = null;
     private TextView acertarVal = null;
 
+    private TextView faltas = null;
     private TextView tempo = null;
 
     //dialogo confirmacao
@@ -81,6 +85,7 @@ public class Jogo extends AppCompatActivity implements View.OnClickListener {
     private int punicoes = 0;
     private int card = 1;
     private PerguntaM selecionada = null;
+    private ArrayList<PerguntaM> perguntasRespondidas = null;
     private int pergSelecionada;
     private int tempoUsado;
     private ArrayList<Integer> vistas = null;
@@ -103,32 +108,37 @@ public class Jogo extends AppCompatActivity implements View.OnClickListener {
     private boolean parou;
     private boolean conferirReposta;
     private boolean desistiu;
+    private boolean pulou;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jogo);
 
+        AGSoundManager.vrMusic.stop();
+        //AGSoundManager.vrSoundEffects.play(Efeitos.getMostraPerunta());
         //refernecias visuais
-        enunciado = (TextView) findViewById(R.id.jogo_txtpergunta);
-        nome = (TextView) findViewById(R.id.jogo_txtnomejogador);
-        errarVal = (TextView) findViewById(R.id.jogo_valerrar);
-        sairVal = (TextView) findViewById(R.id.jogo_valparar);
-        acertarVal = (TextView) findViewById(R.id.jogo_valacertar);
+        enunciado = findViewById(R.id.jogo_txtpergunta);
+        nome = findViewById(R.id.jogo_txtnomejogador);
+        errarVal = findViewById(R.id.jogo_valerrar);
+        sairVal = findViewById(R.id.jogo_valparar);
+        acertarVal = findViewById(R.id.jogo_valacertar);
 
-        alternativa1 = (Button) findViewById(R.id.jogo_btnalternativa1);
-        alternativa2 = (Button) findViewById(R.id.jogo_btnalternativa2);
-        alternativa3 = (Button) findViewById(R.id.jogo_btnalternativa3);
-        alternativa4 = (Button) findViewById(R.id.jogo_btnalternativa4);
-        sair = (Button) findViewById(R.id.jogo_btnparar);
-        cartas = (Button) findViewById(R.id.jogo_cartas);
-        convidados = (Button) findViewById(R.id.jogo_convidados);
-        placas = (Button) findViewById(R.id.jogo_placas);
-        pular1 = (Button) findViewById(R.id.jogo_pular1);
-        pular2 = (Button) findViewById(R.id.jogo_pular2);
-        pular3 = (Button) findViewById(R.id.jogo_pular3);
+        alternativa1 = findViewById(R.id.jogo_btnalternativa1);
+        alternativa2 = findViewById(R.id.jogo_btnalternativa2);
+        alternativa3 = findViewById(R.id.jogo_btnalternativa3);
+        alternativa4 = findViewById(R.id.jogo_btnalternativa4);
+        sair = findViewById(R.id.jogo_btnparar);
+        cartas = findViewById(R.id.jogo_cartas);
+        convidados = findViewById(R.id.jogo_convidados);
+        placas = findViewById(R.id.jogo_placas);
+        pular1 = findViewById(R.id.jogo_pular1);
+        pular2 = findViewById(R.id.jogo_pular2);
+        pular3 = findViewById(R.id.jogo_pular3);
 
-        tempo = (TextView) findViewById(R.id.jogo_cronometro);
+        faltas = findViewById(R.id.jogo_faltas);
+        tempo = findViewById(R.id.jogo_cronometro);
+        tempo.setText("0");
 
         grupo1 = new ArrayList<>();
         grupo2 = new ArrayList<>();
@@ -136,6 +146,7 @@ public class Jogo extends AppCompatActivity implements View.OnClickListener {
         grupo4 = new ArrayList<>();
 
         //carrega as perguntas conforme o grupo
+        perguntasRespondidas = new ArrayList<>();
         for (PerguntaM a: perguntas){
             if(a.getNivel() == 1)
                 grupo1.add(a);
@@ -177,6 +188,7 @@ public class Jogo extends AppCompatActivity implements View.OnClickListener {
         mediaTempo = 0;
         vistas = new ArrayList<>();
         parou = false;
+        pulou = false;
 
         //começa o jogo
         carregaScore();
@@ -184,8 +196,7 @@ public class Jogo extends AppCompatActivity implements View.OnClickListener {
     }
 
     @Override
-    public void onBackPressed()
-    {
+    public void onBackPressed(){
         // super.onBackPressed(); // Comment this super call to avoid calling finish() or fragmentmanager's backstack pop operation.
     }
 
@@ -197,17 +208,19 @@ public class Jogo extends AppCompatActivity implements View.OnClickListener {
                     String mensagem;
                     Boolean voltar = dados.getExtras().getBoolean("voltar");
                     String tela = dados.getExtras().getString("tela");
+                    int erradas = dados.getExtras().getInt("valor");
 
                     //verifica se esta voltando pelo backbutton, se estiver habilita de novo o botao
                     if (tela.contains("Jogo")) {
                         this.paraCronometro = false;
                         valendoTempo();
                         if (voltar) {
-                            cartas.setEnabled(true);
                             Toast.makeText(this.getApplicationContext(), "Cartas não jogadas... segue o jogo! ", Toast.LENGTH_SHORT).show();
                         }
                         else{
-                            Toast.makeText(this.getApplicationContext(), "BRBR", Toast.LENGTH_SHORT).show();
+                            cartas.setEnabled(false);
+                            cartas.setBackground(getDrawable(R.drawable.btncartasd));
+                            anulaQuestaoErrada(erradas);
                         }
                     }
                 }
@@ -218,17 +231,22 @@ public class Jogo extends AppCompatActivity implements View.OnClickListener {
         }
     }
 
-
     //metodo que fará  jogo iniciar seu fluxo
     private void iniciarJogo(){
         enunciado.setText("");
         alternativa1.setText("");
+        alternativa1.setEnabled(true);
         alternativa2.setText("");
+        alternativa2.setEnabled(true);
         alternativa3.setText("");
+        alternativa3.setEnabled(true);
         alternativa4.setText("");
+        alternativa4.setEnabled(true);
+
         tempo.setText("01:00");
         tempo.setTextColor(Color.GRAY );
         desistiu = false;
+        pulou = false;
 
         alternativa1.setBackground(getDrawable(R.drawable.design_btn_jogo_on));
         alternativa2.setBackground(getDrawable(R.drawable.design_btn_jogo_on));
@@ -251,14 +269,15 @@ public class Jogo extends AppCompatActivity implements View.OnClickListener {
         valendoxptsd = valendoxpts.create();
         valendoxptsd.show();
         valendoxptsd.setCancelable(false);
-        aviOk = (Button) valendoxptsd.findViewById(R.id.avisoal_btnok);
-        aviNome = (TextView) valendoxptsd.findViewById(R.id.avisoal_txtnome);
-        aviTexto = (TextView) valendoxptsd.findViewById(R.id.avisoal_txtaviso);
+        aviOk = valendoxptsd.findViewById(R.id.avisoal_btnok);
+        aviNome = valendoxptsd.findViewById(R.id.avisoal_txtnome);
+        aviTexto = valendoxptsd.findViewById(R.id.avisoal_txtaviso);
         aviNome.setText(jogador.getNome()+"...");
         aviTexto.setText("Valendo "+scores.get(acertos).getDescricaoAcerto());
         aviTexto.setTextSize(50);
         aviOk.setText("Estou pronto!");
         aviOk.setOnClickListener(this);
+        AGSoundManager.vrSoundEffects.play(Efeitos.getMostraPerunta());
 
         this.timeRemaing = 60*1000;
         this.paraCronometro = false;
@@ -267,6 +286,23 @@ public class Jogo extends AppCompatActivity implements View.OnClickListener {
         this.escolha = -1;
 
         habilitarClicks(false);
+
+        //se for a pergunta final desabilita todas as ajudas
+        if(acertos == 15){
+            cartas.setEnabled(false);
+            cartas.setBackground(getDrawable(R.drawable.btncartasd));
+            convidados.setEnabled(false);
+            convidados.setBackground(getDrawable(R.drawable.btnconvd));
+            placas.setEnabled(false);
+            placas.setBackground(getDrawable(R.drawable.btnplacasd));
+            pular1.setEnabled(false);
+            pular1.setBackground(getDrawable(R.drawable.btnpulard));
+            pular2.setEnabled(false);
+            pular2.setBackground(getDrawable(R.drawable.btnpulard));
+            pular3.setEnabled(false);
+            pular3.setBackground(getDrawable(R.drawable.btnpulard));
+        }
+
     }
 
     //metodo que carrega a pergunta
@@ -274,22 +310,28 @@ public class Jogo extends AppCompatActivity implements View.OnClickListener {
         //seleciona a pergunta de acordo com o card
         selecionada = new PerguntaM();
         pergSelecionada = -1;
+        AGSoundManager.vrMusic.loadMusic("suspensea.mp3", true);
         if (card == 1){
             pergSelecionada = sorteiaPergunta(grupo1, jogador.getAno());
             selecionada = grupo1.get(pergSelecionada);
+            AGSoundManager.vrMusic.loadMusic("suspensea.mp3", true);
         }
         if(card == 2){
             pergSelecionada = sorteiaPergunta(grupo2, jogador.getAno());
             selecionada = grupo2.get(pergSelecionada);
+            AGSoundManager.vrMusic.loadMusic("suspenseb.mp3", true);
         }
         if(card == 3){
             pergSelecionada = sorteiaPergunta(grupo3, jogador.getAno());
             selecionada = grupo3.get(pergSelecionada);
+            AGSoundManager.vrMusic.loadMusic("suspensec.mp3", true);
         }
         if(card == 4){
             pergSelecionada = sorteiaPergunta(grupo4, jogador.getAno());
             selecionada = grupo4.get(pergSelecionada);
+            AGSoundManager.vrMusic.loadMusic("suspensed.mp3", true);
         }
+        AGSoundManager.vrMusic.play();
         mostraPerguntas();
     }
 
@@ -304,23 +346,36 @@ public class Jogo extends AppCompatActivity implements View.OnClickListener {
         dconfirmacao = confirmacao.create();
         dconfirmacao.show();
         dconfirmacao.setCancelable(false);
-        confSim = (Button) dconfirmacao.findViewById(R.id.confiral_btnsim);
-        confNao = (Button) dconfirmacao.findViewById(R.id.confiral_btnnao);
-        confNomejog = (TextView) dconfirmacao.findViewById(R.id.confiral_txtnomejog);
-        confTexto = (TextView) dconfirmacao.findViewById(R.id.confiral_txtaviso);
+        confSim = dconfirmacao.findViewById(R.id.confiral_btnsim);
+        confNao = dconfirmacao.findViewById(R.id.confiral_btnnao);
+        confNomejog = dconfirmacao.findViewById(R.id.confiral_txtnomejog);
+        confTexto = dconfirmacao.findViewById(R.id.confiral_txtaviso);
         confNomejog.setText(jogador.getNome()+"...");
-        if(i == 0)
+        if(i == 0){
             confTexto.setText("Está certo de que deseja PARAR o jogo?!");
-        if(i >=1 && i <= 4)
+            AGSoundManager.vrSoundEffects.play(Efeitos.getSomParar());
+        }
+        if(i >=1 && i <= 4){
             confTexto.setText("Está certo da alternativa "+i+" ser a resposta correta?!");
-        if(i == 10)
+            AGSoundManager.vrSoundEffects.play(Efeitos.getSomEstacertodisso());
+        }
+        if(i == 10){
             confTexto.setText("Está certo de pedir a opinião dos convidados ?");
-        if(i == 20)
+            AGSoundManager.vrSoundEffects.play(Efeitos.getSomCerteza());
+        }
+        if(i == 20){
             confTexto.setText("Está certo de usar as cartas ?");
-        if(i == 30)
+            AGSoundManager.vrSoundEffects.play(Efeitos.getSomCerteza());
+        }
+        if(i == 30){
             confTexto.setText("Está certo de usar as placas ?");
-        if(i == 40)
+            AGSoundManager.vrSoundEffects.play(Efeitos.getSomCerteza());
+        }
+        if(i == 40){
             confTexto.setText("Está certo de pular está pergunta ? Você ainda pode pular "+(3-pulos)+" vez(es)");
+            AGSoundManager.vrSoundEffects.play(Efeitos.getSomVaipular());
+        }
+
         confSim.setOnClickListener(this);
         confNao.setOnClickListener(this);
     }
@@ -341,38 +396,45 @@ public class Jogo extends AppCompatActivity implements View.OnClickListener {
             //convidados
             dconfirmacao.dismiss();
             convidados.setEnabled(false);
+            convidados.setBackground(getDrawable(R.drawable.btnconvd));
             mostrarAjuda(i);
         }
         if(i == 20){
             //cartas
             dconfirmacao.dismiss();
-            cartas.setEnabled(false);
             mostraTelaCartas();
         }
         if(i == 30){
             //placas
             dconfirmacao.dismiss();
             placas.setEnabled(false);
+            placas.setBackground(getDrawable(R.drawable.btnplacasd));
             mostrarAjuda(i);
         }
         if(i == 40){
             dconfirmacao.dismiss();
             pulos++;
+            pulou = true;
             if(pulos == 1){
                 pular1.setEnabled(false);
+                pular1.setBackground(getDrawable(R.drawable.btnpulard));
                 pular2.setEnabled(true);
             }
             if(pulos == 2){
                 pular2.setEnabled(false);
+                pular2.setBackground(getDrawable(R.drawable.btnpulard));
                 pular3.setEnabled(true);
             }
             if(pulos == 3){
                 pular3.setEnabled(false);
+                pular3.setBackground(getDrawable(R.drawable.btnpulard));
             }
             paraCronometro = true;
             ct.cancel();
-            iniciarJogo();
-            Toast.makeText(this,"Ainda restam "+(3-pulos)+" pulos.",Toast.LENGTH_LONG).show();
+            this.tempoJog += this.tempoUsado;
+            AGSoundManager.vrMusic.stop();
+            mostraResultado(false);
+            //Toast.makeText(this,"Ainda restam "+(3-pulos)+" pulos.",Toast.LENGTH_LONG).show();
         }
     }
 
@@ -400,6 +462,13 @@ public class Jogo extends AppCompatActivity implements View.OnClickListener {
     //continuação do metodo anterior
     private void resultadoDecisao2(final int alter){
         acertou = false;
+        //faz o som tocar
+        AGSoundManager.vrMusic.stop();
+        if(alter == selecionada.getAlternativaCorreta())
+            AGSoundManager.vrSoundEffects.play(Efeitos.getSomAcerto());
+        else
+            AGSoundManager.vrSoundEffects.play(Efeitos.getSomErro());
+
         CountDownTimer d =  new CountDownTimer(8000, 500) {
             int seg = 0;
             public void onTick(long millisUntilFinished) {
@@ -464,44 +533,59 @@ public class Jogo extends AppCompatActivity implements View.OnClickListener {
         dialogView = inflador.inflate(R.layout.alert_aviso, null);
         valendoxpts.setView(dialogView);
         valendoxpts.setCancelable(false);
-        if(!parou){
-            if(acertou)
-                valendoxpts.setTitle("Parabéns");
-            else
-                valendoxpts.setTitle("Que pena...");
-        }
-        else{
-            valendoxpts.setTitle("Tudo bem...");
-        }
+        if(pulou){
+            valendoxpts.setTitle("Ok...");
+        } else {
+            if(!parou){
+                if(acertou)
+                    valendoxpts.setTitle("Parabéns");
+                else
+                    valendoxpts.setTitle("Que pena...");
 
+            }
+            else{
+                valendoxpts.setTitle("Tudo bem...");
+            }
+        }
         valendoxptsd = valendoxpts.create();
         valendoxptsd.show();
         valendoxptsd.setCancelable(false);
-        aviOk = (Button) valendoxptsd.findViewById(R.id.avisoal_btnok);
-        aviNome = (TextView) valendoxptsd.findViewById(R.id.avisoal_txtnome);
-        aviTexto = (TextView) valendoxptsd.findViewById(R.id.avisoal_txtaviso);
+        aviOk = valendoxptsd.findViewById(R.id.avisoal_btnok);
+        aviNome = valendoxptsd.findViewById(R.id.avisoal_txtnome);
+        aviTexto = valendoxptsd.findViewById(R.id.avisoal_txtaviso);
         aviNome.setText(jogador.getNome()+"...");
-        if(!parou){
-            if(acertou){
-                if(acertos <= 15){
-                    aviTexto.setText("Você acertou!\nGanhou "+scores.get(acertos-1).getDescricaoAcerto()+" pontos!");
-                    aviOk.setText("Próxima pergunta");
+        if(pulou){
+            aviTexto.setText("Você pulou!\nVamos selecionar outra pergunta.");
+            aviOk.setText("Próxima pergunta");
+        } else {
+            if(!parou){
+                if(acertou){
+                    perguntasRespondidas.add(selecionada);
+                    if(acertos <= 15){
+                        aviTexto.setText("Você acertou!\nGanhou "+scores.get(acertos-1).getDescricaoAcerto()+" pontos!");
+                        aviOk.setText("Próxima pergunta");
+                    }
+                    else{
+                        AGSoundManager.vrMusic.loadMusic("ganhou.mp3", false);
+                        AGSoundManager.vrMusic.play();
+                        aviTexto.setText("Você venceu o jogo!\nGanhou 1 Milhão de pontos!");
+                        aviOk.setText("Sair do jogo");
+                    }
                 }
                 else{
-                    aviTexto.setText("Você venceu o jogo!\nGanhou 1 Milhão de pontos!");
+                    AGSoundManager.vrMusic.loadMusic("perdeu.mp3", false);
+                    AGSoundManager.vrMusic.play();
+                    aviTexto.setText("Você perdeu!\nMas saiu com "+scores.get(acertos).getDescricaoErro()+" pontos!");
                     aviOk.setText("Sair do jogo");
                 }
             }
             else{
-                aviTexto.setText("Você perdeu!\nMas saiu com "+scores.get(acertos).getDescricaoErro()+" pontos!");
+                aviTexto.setText("Você Parou o jogo!\nMas saiu com "+scores.get(acertos).getDescricaoDesistir()+" pontos!");
                 aviOk.setText("Sair do jogo");
+                this.acertou = false;
             }
         }
-        else{
-            aviTexto.setText("Você Parou o jogo!\nMas saiu com "+scores.get(acertos).getDescricaoDesistir()+" pontos!");
-            aviOk.setText("Sair do jogo");
-            this.acertou = false;
-        }
+
         aviTexto.setTextSize(30);
         aviOk.setOnClickListener(this);
 
@@ -668,7 +752,9 @@ public class Jogo extends AppCompatActivity implements View.OnClickListener {
                     tempo.setTextColor(Color.RED);
                     tempo.setText("Fim do tempo!");
                     punicoes++;
-                    Toast.makeText(getApplicationContext(),"Você tomou uma punição por limite de tempo, num total de "+punicoes+" punições",Toast.LENGTH_LONG).show();
+                    faltas.setText(String.valueOf(punicoes));
+                    tempoUsado +=1;
+                    Toast.makeText(getApplicationContext(),"Você tomou uma punição por limite de tempo.",Toast.LENGTH_LONG).show();
                 }
             }
         };
@@ -688,9 +774,10 @@ public class Jogo extends AppCompatActivity implements View.OnClickListener {
             valendoxpts.setTitle("Ajuda das Placas");
         valendoxptsd = valendoxpts.create();
         valendoxptsd.show();
-        aviOk = (Button) valendoxptsd.findViewById(R.id.avisoal_btnok);
-        aviNome = (TextView) valendoxptsd.findViewById(R.id.avisoal_txtnome);
-        aviTexto = (TextView) valendoxptsd.findViewById(R.id.avisoal_txtaviso);
+        valendoxptsd.setCancelable(false);
+        aviOk = valendoxptsd.findViewById(R.id.avisoal_btnok);
+        aviNome = valendoxptsd.findViewById(R.id.avisoal_txtnome);
+        aviTexto = valendoxptsd.findViewById(R.id.avisoal_txtaviso);
         if(opt == 10){
             aviNome.setText("Convidados...");
             aviTexto.setText("Dêem sua opinião ao jogador(a).");
@@ -707,20 +794,20 @@ public class Jogo extends AppCompatActivity implements View.OnClickListener {
 
     //Mostra as perguintass
     private void mostraPerguntas(){
-        long millisInFuture = 21000; //60 segundos
+        long millisInFuture = 22000; //60 segundos
         long countDownInterval = 1000; //1 segundo
         enunciado.setText(selecionada.getEnunciado());
         CountDownTimer kk =  new CountDownTimer(millisInFuture, countDownInterval) {
             int seg = 0;
             public void onTick(long millisUntilFinished) {
                 seg = (int)( (millisUntilFinished%21000)/1000);
-                if(seg == 13)
+                if(seg == 14)
                     alternativa1.setText("\t1) "+selecionada.getAlternativa1());
-                if(seg == 9)
+                if(seg == 10)
                     alternativa2.setText("\t2) "+selecionada.getAlternativa2());
-                if(seg == 5)
+                if(seg == 6)
                     alternativa3.setText("\t3) "+selecionada.getAlternativa3());
-                if(seg == 1)
+                if(seg == 2)
                     alternativa4.setText("\t4) "+selecionada.getAlternativa4());
             }
             public void onFinish() {
@@ -729,6 +816,7 @@ public class Jogo extends AppCompatActivity implements View.OnClickListener {
                 acertarVal.setText(scores.get(acertos).getDescricaoAcerto());
                 habilitarClicks(true);
                 valendoTempo();
+                AGSoundManager.vrSoundEffects.play(Efeitos.getSomQualaresposta());
                 this.cancel();
             }
         };
@@ -743,7 +831,7 @@ public class Jogo extends AppCompatActivity implements View.OnClickListener {
             gerador = new Random();
             pos = gerador.nextInt(sort.size());
             //verifica se é do mesmo nivel
-            if(sort.get(pos).getAno() == ano){
+            if(sort.get(pos).getAno() == ano && sort.get(pos).isRespondido() == false){
                 //verifica se já existe algum registro visualizado pelo jogador
                 passa = true;
                 for(Integer a: vistas){
@@ -774,7 +862,6 @@ public class Jogo extends AppCompatActivity implements View.OnClickListener {
     //Metodo que finaliza o jogo
     private void finalizarJogo(int status){
         //status 0 - errou, 1 - desistiu, 2 - venceu o jogo
-
         if(parou)
             status = 1;
         if(desistiu)
@@ -813,6 +900,15 @@ public class Jogo extends AppCompatActivity implements View.OnClickListener {
         //atualiza no banco
         bancoJogador.atualizar(jogador);
 
+        //atualiza as perguntas em tempo de execução, para as mesmas nao aparecerem de novo no proximo jogo
+        for (PerguntaM a: perguntasRespondidas){
+            for(int i = 0; i< perguntas.size(); i++){
+                if(a.getId() == perguntas.get(i).getId()){
+                    perguntas.get(i).setRespondido(true);
+                }
+            }
+        }
+
         //faz a intent para sair do jogo
         Bundle dicionario = new Bundle();
         dicionario.putBoolean("fim", true);
@@ -835,9 +931,51 @@ public class Jogo extends AppCompatActivity implements View.OnClickListener {
     //carrega a tela das cartas
     private void mostraTelaCartas(){
         paraCronometro = true;
+        Bundle dicionario = new Bundle();
+        dicionario.putString("nome", jogador.getNome());
         Intent solicitacao = new Intent(this, Cartas.class);
-        this.onPause();
+        solicitacao.putExtras(dicionario);
         startActivityForResult(solicitacao, 20);
+    }
+
+    //anula as perguntas erradas
+    private void anulaQuestaoErrada(int anular){
+        //se vier 0 ele nem anula
+        if(anular !=0){
+            boolean next = false;
+            ArrayList<Integer> listaAnuladas = new ArrayList<>();
+            int i;
+            for(i=0;i<anular;i++){
+                next = false;
+                while(!next){
+                    gerador = new Random();
+                    int pos = gerador.nextInt(5);
+                    if(pos != selecionada.getAlternativaCorreta() && pos != 0 && !listaAnuladas.contains(pos)){
+                        listaAnuladas.add(pos);
+                        next = true;
+                    }
+                }
+            }
+            //segundo for que anula
+            for(Integer errada:listaAnuladas){
+                if(errada == 1){
+                    alternativa1.setEnabled(false);
+                    alternativa1.setText("");
+                }
+                if(errada == 2){
+                    alternativa2.setEnabled(false);
+                    alternativa2.setText("");
+                }
+                if(errada == 3){
+                    alternativa3.setEnabled(false);
+                    alternativa3.setText("");
+                }
+                if(errada == 4){
+                    alternativa4.setEnabled(false);
+                    alternativa4.setText("");
+                }
+            }
+        }
     }
 
     @Override
@@ -888,34 +1026,41 @@ public class Jogo extends AppCompatActivity implements View.OnClickListener {
             //ok
             case R.id.avisoal_btnok:
                 valendoxptsd.dismiss();
-                if(conferirReposta){
-                    //é pra parar e continuar
-                    if(acertou){
-                        //verifica se o jogo terminou e se é a ultima pergunta
-                        if(acertos > 15){
-                            //se for finaliza
-                            finalizarJogo(2);
+                if(pulou){
+                    //recomeça o jogo
+                    iniciarJogo();
+                }
+                else{
+                    if(conferirReposta){
+                        //é pra parar e continuar
+                        if(acertou){
+                            //verifica se o jogo terminou e se é a ultima pergunta
+                            if(acertos > 15){
+                                //se for finaliza
+                                finalizarJogo(2);
+                            }
+                            else{
+                                //se não for recomeça  o jogo
+                                iniciarJogo();
+                            }
                         }
                         else{
-                            //se não for recomeça  o jogo
-                            iniciarJogo();
+                            //termina o jogo
+                            finalizarJogo(0);
                         }
                     }
                     else{
-                        //termina o jogo
-                        finalizarJogo(0);
-                    }
-                }
-                else{
-                    //nao é pra parar o jogo
-                    if(!this.corrente)
-                        carregarPergunta();
-                    else {
-                        this.paraCronometro = false;
-                        valendoTempo();
+                        //nao é pra parar o jogo
+                        if(!this.corrente)
+                            carregarPergunta();
+                        else {
+                            this.paraCronometro = false;
+                            valendoTempo();
+                        }
                     }
                 }
                 break;
         }
     }
+
 }

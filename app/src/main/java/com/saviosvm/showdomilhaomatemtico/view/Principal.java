@@ -14,7 +14,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.saviosvm.showdomilhaomatemtico.AndGraph.AGSoundManager;
 import com.saviosvm.showdomilhaomatemtico.R;
+import com.saviosvm.showdomilhaomatemtico.controler.Efeitos;
 import com.saviosvm.showdomilhaomatemtico.controler.JogadorC;
 import com.saviosvm.showdomilhaomatemtico.controler.PerguntaC;
 import com.saviosvm.showdomilhaomatemtico.model.PerguntaM;
@@ -47,6 +49,8 @@ public class Principal extends AppCompatActivity implements View.OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
+
+        AGSoundManager.vrSoundEffects.play(Efeitos.getNulo());
 
         //referencias visuais
         novo = (Button) findViewById(R.id.principal_btnNovojogo);
@@ -82,6 +86,7 @@ public class Principal extends AppCompatActivity implements View.OnClickListener
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.principal_btnNovojogo:
+                AGSoundManager.vrSoundEffects.play(Efeitos.getSomNome());
                 novaTela(1);
                 break;
             case R.id.principal_btnRegras:
@@ -101,7 +106,7 @@ public class Principal extends AppCompatActivity implements View.OnClickListener
         try {
             //instancia o assetmanager e inputstream e buffer reader com o nome do arquivo
             AssetManager assetManager = getResources().getAssets();
-            InputStream inputStream = assetManager.open("perguntas3.txt");
+            InputStream inputStream = assetManager.open("perguntas.txt");
             InputStreamReader lerPlayers = new InputStreamReader(inputStream);
             BufferedReader lerArq = new BufferedReader(lerPlayers);
             //array auxiliar de strings
@@ -164,49 +169,6 @@ public class Principal extends AppCompatActivity implements View.OnClickListener
 
     //inicia o nobo jogos
     public void novoJogo(){
-/*
-        final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this, R.style.MyAlertDialogStyle);
-        LayoutInflater inflater = this.getLayoutInflater();
-        final View dialogView = inflater.inflate(R.layout.alert_nome, null);
-        dialogBuilder.setView(dialogView);
-        dialogBuilder.setTitle("Antes de inciar, insira:");
-        final AlertDialog b = dialogBuilder.create();
-        b.show();
-
-        final EditText nome = (EditText) b.findViewById(R.id.nomeal_nome);
-        final EditText classe = (EditText) b.findViewById(R.id.nomeal_serie);
-        final Button nao = (Button) b.findViewById(R.id.nomeal_btnnao);
-        final Button sim = (Button) b.findViewById(R.id.nomeal_btnsim);
-
-        nao.setOnClickListener(new View.OnClickListener()
-        {
-            public void onClick(View v)
-            {
-                b.dismiss();
-            }
-        });
-
-        sim.setOnClickListener(new View.OnClickListener()
-        {
-            public void onClick(View v)
-            {
-                if(nome.getText().toString().isEmpty() || classe.getText().toString().isEmpty()){
-                    Toast.makeText(getApplicationContext(),"Atenção: Nome e Classe do jogador não podem ficar vazios", Toast.LENGTH_LONG).show();
-                }
-                else{
-                    jogadorBanco.inserir(nome.getText().toString(),classe.getText().toString());
-                    Toast.makeText(getApplicationContext(),"Vamo jogar OEEE", Toast.LENGTH_LONG).show();
-                    //cria a intent para a tela de novo jogador
-                    solicitacao = new Intent(getApplicationContext(), Jogo.class);
-                    //Dicionario de dados
-                    Jogo.validaJogo(jogadorBanco,perguntas);
-                    b.dismiss();
-                    startActivityForResult(solicitacao, 10);
-                }
-            }
-        });
-        */
-
        //cria a intent para a tela de novo jogador
         solicitacao = new Intent(this, Nome.class);
         //Dicionario de dados

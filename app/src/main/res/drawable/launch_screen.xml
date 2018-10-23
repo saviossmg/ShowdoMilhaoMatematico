@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Uma cor de background, preferencialmente a mesma do tema -->
+    <item android:drawable="@drawable/fundoingame" />
+    <!-- Logo do app. Imagem de 144dp -->
+    <!--
+    <item>
+        <bitmap
+            android:alpha="1"
+            android:gravity="center"
+            android:src="@drawable/splashhh" />
+    </item>
+    -->
+</layer-list>

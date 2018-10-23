@@ -15,6 +15,7 @@
         android:layout_height="0dp"
         android:gravity="center"
         android:text="@string/nome_nome"
+        android:textAlignment="viewEnd"
         android:textColor="@android:color/white"
         android:textStyle="bold"
         app:autoSizeMaxTextSize="24dp"
@@ -23,6 +24,7 @@
         app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toBottomOf="@+id/nome_horizontal_h20"
         app:layout_constraintEnd_toEndOf="@+id/nome_vertical_v30"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/nome_vertical_v10"
         app:layout_constraintTop_toTopOf="@+id/nome_horizontal_h10"
         tools:ignore="MissingPrefix" />
@@ -53,6 +55,7 @@
         android:focusableInTouchMode="true"
         android:gravity="center"
         android:text="@string/nome_serie"
+        android:textAlignment="viewEnd"
         android:textColor="@android:color/white"
         android:textStyle="bold"
         app:autoSizeMaxTextSize="24dp"
@@ -80,8 +83,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/nome_horizontal_h40"
         app:layout_constraintEnd_toEndOf="@+id/nome_vertical_v90"
         app:layout_constraintStart_toStartOf="@+id/nome_vertical_v35"
-        app:layout_constraintTop_toTopOf="@+id/nome_horizontal_h30"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="@+id/nome_horizontal_h30" />
 
     <TextView
         android:id="@+id/nome_nivell"
@@ -91,6 +93,7 @@
         android:focusableInTouchMode="true"
         android:gravity="center"
         android:text="@string/nome_nivel"
+        android:textAlignment="viewEnd"
         android:textColor="@android:color/white"
         android:textStyle="bold"
         app:autoSizeMaxTextSize="24dp"
@@ -103,19 +106,55 @@
         app:layout_constraintTop_toTopOf="@+id/nome_horizontal_h50"
         tools:ignore="MissingPrefix" />
 
-    <Spinner
-        android:id="@+id/nome_nivelspi"
+    <RadioGroup
+        android:id="@+id/nome_grupoano"
         android:layout_width="0dp"
-        android:layout_height="24dp"
-        android:backgroundTint="@color/cortexto"
-        android:isScrollContainer="false"
-        android:popupBackground="@color/btncinza"
-        android:textColor="@android:color/white"
-        android:textColorHint="@android:color/darker_gray"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:theme="@style/MyRadioButton"
         app:layout_constraintBottom_toBottomOf="@+id/nome_horizontal_h60"
         app:layout_constraintEnd_toEndOf="@+id/nome_vertical_v90"
         app:layout_constraintStart_toStartOf="@+id/nome_vertical_v35"
-        app:layout_constraintTop_toTopOf="@+id/nome_horizontal_h50" />
+        app:layout_constraintTop_toTopOf="@+id/nome_horizontal_h50">
+
+        <RadioButton
+            android:id="@+id/nome_nivel_4"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal|center"
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="4º"
+            android:textColor="@color/corhint" />
+
+        <RadioButton
+            android:id="@+id/nome_nivel_5"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text="5º"
+            android:textColor="@color/corhint" />
+
+        <RadioButton
+            android:id="@+id/nome_nivel_6"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text="6º"
+            android:textColor="@color/corhint" />
+
+        <RadioButton
+            android:id="@+id/nome_nivel_7"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text="7º"
+            android:textColor="@color/corhint" />
+
+    </RadioGroup>
 
     <Button
         android:id="@+id/nome_iniciar"
@@ -222,7 +261,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.35" />
+        app:layout_constraintGuide_percent="0.35"  />
 
     <android.support.constraint.Guideline
         android:id="@+id/nome_vertical_v65"

@@ -35,7 +35,7 @@ public class Placar extends AppCompatActivity {
         jogadores = bancoJogador.listar();
         if (!jogadores.isEmpty()) {
             //vai organizar os jogadores por pontuiação
-            //jogadores = organizaPlacar();
+            jogadores = organizaPlacar();
         } else {
             //se não tiver nada mostra uma mensagem
             Toast.makeText(this, "Ainda não há jogadores registrados!", Toast.LENGTH_SHORT).show();
