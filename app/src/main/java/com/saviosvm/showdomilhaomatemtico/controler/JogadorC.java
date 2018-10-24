@@ -33,7 +33,7 @@ public class JogadorC {
         ArrayList<JogadorM> result = new ArrayList<>();
 
         cursor = db.query("jogador", new String[]{"id","nome", "classe", "acertos", "pontos", "tempo","mediatempo", "faltas", "ano"},
-                null, null, null, null, null);
+                null, null, null, null, "pontos DESC, acertos DESC, faltas ASC, tempo ASC, mediatempo ASC");
         cursor.moveToFirst();
         while(!cursor.isAfterLast()) {
             jogador = new JogadorM();

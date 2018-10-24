@@ -542,8 +542,10 @@ public class Jogo extends AppCompatActivity implements View.OnClickListener {
                 else
                     valendoxpts.setTitle("Que pena...");
 
+
             }
             else{
+                AGSoundManager.vrSoundEffects.play(Efeitos.getSomSelecparou());
                 valendoxpts.setTitle("Tudo bem...");
             }
         }
@@ -566,6 +568,7 @@ public class Jogo extends AppCompatActivity implements View.OnClickListener {
                         aviOk.setText("Próxima pergunta");
                     }
                     else{
+                        AGSoundManager.vrSoundEffects.play(Efeitos.getSomParabens());
                         AGSoundManager.vrMusic.loadMusic("ganhou.mp3", false);
                         AGSoundManager.vrMusic.play();
                         aviTexto.setText("Você venceu o jogo!\nGanhou 1 Milhão de pontos!");
@@ -580,15 +583,15 @@ public class Jogo extends AppCompatActivity implements View.OnClickListener {
                 }
             }
             else{
+                AGSoundManager.vrMusic.loadMusic("parou.mp3", false);
+                AGSoundManager.vrMusic.play();
                 aviTexto.setText("Você Parou o jogo!\nMas saiu com "+scores.get(acertos).getDescricaoDesistir()+" pontos!");
                 aviOk.setText("Sair do jogo");
                 this.acertou = false;
             }
         }
-
         aviTexto.setTextSize(30);
         aviOk.setOnClickListener(this);
-
     }
 
     //carega o score
@@ -779,10 +782,12 @@ public class Jogo extends AppCompatActivity implements View.OnClickListener {
         aviNome = valendoxptsd.findViewById(R.id.avisoal_txtnome);
         aviTexto = valendoxptsd.findViewById(R.id.avisoal_txtaviso);
         if(opt == 10){
+            AGSoundManager.vrSoundEffects.play(Efeitos.getSomAjudaconv());
             aviNome.setText("Convidados...");
             aviTexto.setText("Dêem sua opinião ao jogador(a).");
         }
         if(opt == 30){
+            AGSoundManager.vrSoundEffects.play(Efeitos.getSomAjudaplacas());
             aviNome.setText("Platéia...");
             aviTexto.setText("Levante a placa que você acredita ser a resposta correta.");
         }
@@ -861,6 +866,7 @@ public class Jogo extends AppCompatActivity implements View.OnClickListener {
 
     //Metodo que finaliza o jogo
     private void finalizarJogo(int status){
+        AGSoundManager.vrSoundEffects.play(Efeitos.getSomTchau());
         //status 0 - errou, 1 - desistiu, 2 - venceu o jogo
         if(parou)
             status = 1;

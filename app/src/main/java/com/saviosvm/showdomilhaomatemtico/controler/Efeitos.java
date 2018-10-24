@@ -12,12 +12,16 @@ public class Efeitos {
     static int somNome = AGSoundManager.vrSoundEffects.loadSoundEffect("efnomeparticipante.mp3");
     static int somParar = AGSoundManager.vrSoundEffects.loadSoundEffect("efparar.mp3");
     static int somTempoacabou = AGSoundManager.vrSoundEffects.loadSoundEffect("eftempoacabou.mp3");
-    static int somConvidados = AGSoundManager.vrSoundEffects.loadSoundEffect("ef.mp3");
     static int somCartas = AGSoundManager.vrSoundEffects.loadSoundEffect("efcartas.mp3");
     static int somCerteza = AGSoundManager.vrSoundEffects.loadSoundEffect("efcerteza.mp3");
     static int somVaipular = AGSoundManager.vrSoundEffects.loadSoundEffect("efvaipular.mp3");
-    static int somGanhou = AGSoundManager.vrSoundEffects.loadSoundEffect("ganhou.mp3");
-    static int somPerdeu = AGSoundManager.vrSoundEffects.loadSoundEffect("perdeu.mp3");
+
+    static int somAjudaconv = AGSoundManager.vrSoundEffects.loadSoundEffect("efajudaconvid.mp3");
+    static int somAjudaplacas = AGSoundManager.vrSoundEffects.loadSoundEffect("efajudaplacas.mp3");
+    static int somParabens = AGSoundManager.vrSoundEffects.loadSoundEffect("efparabens.mp3");
+    static int somSelecparou = AGSoundManager.vrSoundEffects.loadSoundEffect("efselecparou.mp3");
+    static int somTchau = AGSoundManager.vrSoundEffects.loadSoundEffect("eftchau.mp3");
+
     static int nulo = AGSoundManager.vrSoundEffects.loadSoundEffect("null.mp3");
 
     public static int getMostraPerunta() {
@@ -52,10 +56,6 @@ public class Efeitos {
         return somTempoacabou;
     }
 
-    public static int getSomConvidados() {
-        return somConvidados;
-    }
-
     public static int getSomCartas() {
         return somCartas;
     }
@@ -68,12 +68,24 @@ public class Efeitos {
         return somVaipular;
     }
 
-    public static int getSomGanhou() {
-        return somGanhou;
+    public static int getSomAjudaconv() {
+        return somAjudaconv;
     }
 
-    public static int getSomPerdeu() {
-        return somPerdeu;
+    public static int getSomAjudaplacas() {
+        return somAjudaplacas;
+    }
+
+    public static int getSomParabens() {
+        return somParabens;
+    }
+
+    public static int getSomSelecparou() {
+        return somSelecparou;
+    }
+
+    public static int getSomTchau() {
+        return somTchau;
     }
 
     public static int getNulo() {
