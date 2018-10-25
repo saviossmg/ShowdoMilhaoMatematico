@@ -14,6 +14,9 @@ public class JogadorM {
     private Double pontos;
     private Double tempo;
     private Double mediaTempo;
+    private String tempoTxt;
+    private String mediatempoTxt;
+
     private int faltas;
 
     public JogadorM() {
@@ -93,5 +96,21 @@ public class JogadorM {
 
     public void setFaltas(int faltas) {
         this.faltas = faltas;
+    }
+
+    public String getTempoTxt() {
+        return tempoTxt;
+    }
+
+    public void setTempoTxt(String tempoTxt) {
+        this.tempoTxt = tempoTxt;
+    }
+
+    public String getMediatempoTxt() {
+        return mediatempoTxt;
+    }
+
+    public void setMediatempoTxt(String mediatempoTxt) {
+        this.mediatempoTxt = mediatempoTxt;
     }
 }

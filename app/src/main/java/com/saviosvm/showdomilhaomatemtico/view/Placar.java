@@ -31,58 +31,41 @@ public class Placar extends AppCompatActivity {
         placar.setAdapter(adapter);
     }
 
+
     private void carregarJogadores() {
         jogadores = bancoJogador.listar();
-        if (!jogadores.isEmpty()) {
-            //vai organizar os jogadores por pontuiação
-            jogadores = organizaPlacar();
-        } else {
+        if (jogadores.isEmpty()) {
             //se não tiver nada mostra uma mensagem
             Toast.makeText(this, "Ainda não há jogadores registrados!", Toast.LENGTH_SHORT).show();
+        } else {
+            //transforma
+            for(int i=0;i < jogadores.size(); i++){
+                if(jogadores.get(i).getTempo() > 0 || jogadores.get(i).getMediaTempo() > 0 ){
+                    transformaSeg(i);
+                }
+                else{
+                    jogadores.get(i).setTempoTxt("0seg");
+                    jogadores.get(i).setMediatempoTxt("0seg");
+                }
+            }
         }
     }
 
-    private ArrayList<JogadorM> organizaPlacar() {
-        ArrayList<JogadorM> aux = new ArrayList<>(jogadores);
-        JogadorM p1, p2;
-        int total = jogadores.size();
-        int index;
-        //verifica a partir do array, primeiro por pontuação
-        for (int a = 0; a < total; a++) {
-            index = a;
-            p1 = jogadores.get(a);
-            //faz as comparações
-            for (int p = 0; p < total; p++) {
-                p2 = jogadores.get(p);
-                if (p1.getId() != p2.getId()) {
-                    //1 - pontuação, maior ganha
-                    if (p1.getPontos() > p2.getPontos()) {
-                        index = p;
-                    }
-                    //2 - acertos, maior ganha
-                    else if (p1.getAcertos() > p2.getAcertos()) {
-                        index = p;
-                    }
-                    //3 - faltas, menor ganha
-                    else if (p1.getFaltas() < p2.getFaltas()) {
-                        index = p;
-                    }
-                    //4 - tempo, menor ganha
-                    else if (p1.getTempo() < p2.getTempo()) {
-                        index = p;
-                    }
-                    //5 - media de tempo, menor ganha
-                    else {
-                        if (p1.getMediaTempo() < p2.getMediaTempo())
-                            index = p;
-                        else
-                            index = a;
-                    }
-                }
-            }
-            aux.set(index,p1);
+    private void transformaSeg(int index){
+        int totalSeconds = jogadores.get(index).getTempo().intValue();
+        if(totalSeconds < 60){
+            jogadores.get(index).setTempoTxt(totalSeconds+"seg");
+            jogadores.get(index).setMediatempoTxt(totalSeconds+"seg");
+        } else {
+            final int MINUTES_IN_AN_HOUR = 60;
+            final int SECONDS_IN_A_MINUTE = 60;
+            int seconds = totalSeconds % SECONDS_IN_A_MINUTE;
+            int totalMinutes = totalSeconds / SECONDS_IN_A_MINUTE;
+            int minutes = totalMinutes % MINUTES_IN_AN_HOUR;
+            String result = String.format("%.2f", jogadores.get(index).getMediaTempo());
+            jogadores.get(index).setTempoTxt(minutes+"min "+seconds+"seg");
+            jogadores.get(index).setMediatempoTxt(result+"seg");
         }
-        return aux;
     }
 
     public static void validaBanco(JogadorC pJogador) {

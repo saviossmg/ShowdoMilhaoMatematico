@@ -1,17 +1,11 @@
 package com.saviosvm.showdomilhaomatemtico.view;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.saviosvm.showdomilhaomatemtico.AndGraph.AGSoundManager;
@@ -35,7 +29,6 @@ public class Principal extends AppCompatActivity implements View.OnClickListener
 
     //intent
     private Intent solicitacao = null;
-    private Bundle dicionario = null;
 
     //banco
     private JogadorC jogadorBanco;
@@ -53,15 +46,14 @@ public class Principal extends AppCompatActivity implements View.OnClickListener
         AGSoundManager.vrSoundEffects.play(Efeitos.getNulo());
 
         //referencias visuais
-        novo = (Button) findViewById(R.id.principal_btnNovojogo);
-        regra = (Button) findViewById(R.id.principal_btnRegras);
-        placar = (Button) findViewById(R.id.principal_btnPlacar);
-        sobre = (Button) findViewById(R.id.principal_btnAbout);
+        novo =  findViewById(R.id.principal_btnNovojogo);
+        regra =  findViewById(R.id.principal_btnRegras);
+        placar =  findViewById(R.id.principal_btnPlacar);
+        sobre =  findViewById(R.id.principal_btnAbout);
 
         //banco
         this.jogadorBanco = new JogadorC(this);
         this.perguntaBanco = new PerguntaC(this);
-
 
         this.perguntas = new ArrayList<>();
         if(perguntaBanco.listarGeral().isEmpty())

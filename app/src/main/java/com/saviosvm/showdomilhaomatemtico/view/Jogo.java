@@ -21,6 +21,7 @@ import com.saviosvm.showdomilhaomatemtico.controler.JogadorC;
 import com.saviosvm.showdomilhaomatemtico.model.JogadorM;
 import com.saviosvm.showdomilhaomatemtico.model.PerguntaM;
 import com.saviosvm.showdomilhaomatemtico.model.PontuacaoM;
+import com.saviosvm.showdomilhaomatemtico.model.ScoreM;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -571,14 +572,21 @@ public class Jogo extends AppCompatActivity implements View.OnClickListener {
                         AGSoundManager.vrSoundEffects.play(Efeitos.getSomParabens());
                         AGSoundManager.vrMusic.loadMusic("ganhou.mp3", false);
                         AGSoundManager.vrMusic.play();
-                        aviTexto.setText("Você venceu o jogo!\nGanhou 1 Milhão de pontos!");
+                        aviTexto.setText("Você venceu o jogo!");
                         aviOk.setText("Sair do jogo");
                     }
                 }
                 else{
                     AGSoundManager.vrMusic.loadMusic("perdeu.mp3", false);
                     AGSoundManager.vrMusic.play();
-                    aviTexto.setText("Você perdeu!\nMas saiu com "+scores.get(acertos).getDescricaoErro()+" pontos!");
+                    //verifica se é a primeira ou a ultima pergunta
+                    String textoPerca = "Você perdeu";
+                    if(acertos == 0 || acertos == 15)
+                        textoPerca += " e saiu sem nada!";
+                    else
+                        textoPerca += "!\nMas saiu com "+scores.get(acertos).getDescricaoErro()+" pontos!";
+
+                    aviTexto.setText(textoPerca);
                     aviOk.setText("Sair do jogo");
                 }
             }
@@ -596,127 +604,53 @@ public class Jogo extends AppCompatActivity implements View.OnClickListener {
 
     //carega o score
     private void carregaScore(){
-        int card = 1;
+        int card;
         int i;
         scores = new ArrayList<>();
+        ScoreM ptsDesc = new ScoreM();
         PontuacaoM auxScore = null;
-        //primeiro card
-        //card 1
-        for(i = 1; i <= 5; i++){
-            auxScore = new PontuacaoM();
-            int val = i*1000;
-            auxScore.setCard(card);
-            auxScore.setValorAcerto(val);
-            auxScore.setValorDesistir(val/2);
-            auxScore.setValorErro(val/4);
-            auxScore.setDescricaoAcerto(i+" Mil");
-            //verifica se o valor é maior que mil para colocar as letras
-            //acerto
-            if(auxScore.getValorDesistir() >= 1000){
-                //verifica se é par ou impar
-                if(auxScore.getValorDesistir() % 1000 == 0){
-                    int v = auxScore.getValorDesistir()/1000;
-                    auxScore.setDescricaoDesistir(v+" Mil");
+        //laço que vai percorrer de acordo com o card
+        for(card=1;card <4;card++){
+            //se executa os 3 cards
+            for(i=0;i<5;i++){
+                auxScore = new PontuacaoM();
+                auxScore.setCard(card);
+                if(card==1){
+                    auxScore.setValorAcerto(ptsDesc.getCard1Acertarpts().get(i));
+                    auxScore.setValorDesistir(ptsDesc.getCard1Pararpts().get(i));
+                    auxScore.setValorErro(ptsDesc.getCard1Errarpts().get(i));
+                    auxScore.setDescricaoAcerto(ptsDesc.getCard1Acertartxt().get(i));
+                    auxScore.setDescricaoDesistir(ptsDesc.getCard1Parartxt().get(i));
+                    auxScore.setDescricaoErro(ptsDesc.getCard1Errartxt().get(i));
                 }
-                else{
-                    float v = Float.valueOf((float)auxScore.getValorDesistir()  / 1000);
-                    auxScore.setDescricaoDesistir(String.format("%.1f", v)+" Mil");
+                if(card==2){
+                    auxScore.setValorAcerto(ptsDesc.getCard2Acertarpts().get(i));
+                    auxScore.setValorDesistir(ptsDesc.getCard2Pararpts().get(i));
+                    auxScore.setValorErro(ptsDesc.getCard2Errarpts().get(i));
+                    auxScore.setDescricaoAcerto(ptsDesc.getCard2Acertartxt().get(i));
+                    auxScore.setDescricaoDesistir(ptsDesc.getCard2Parartxt().get(i));
+                    auxScore.setDescricaoErro(ptsDesc.getCard2Errartxt().get(i));
                 }
-            }
-            else{
-                auxScore.setDescricaoDesistir(String.valueOf(auxScore.getValorDesistir()));
-            }
-            //erro
-            if(auxScore.getValorErro() >= 1000){
-                //verifica se é par ou impar
-                if(auxScore.getValorErro() % 1000 == 0){
-                    int v = auxScore.getValorErro()/1000;
-                    auxScore.setDescricaoErro(v+" Mil");
+                if(card==3){
+                    auxScore.setValorAcerto(ptsDesc.getCard3Acertarpts().get(i));
+                    auxScore.setValorDesistir(ptsDesc.getCard3Pararpts().get(i));
+                    auxScore.setValorErro(ptsDesc.getCard3Errarpts().get(i));
+                    auxScore.setDescricaoAcerto(ptsDesc.getCard3Acertartxt().get(i));
+                    auxScore.setDescricaoDesistir(ptsDesc.getCard3Parartxt().get(i));
+                    auxScore.setDescricaoErro(ptsDesc.getCard3Errartxt().get(i));
                 }
-                else{
-                    float v = Float.valueOf((float)auxScore.getValorErro()  / 1000);
-                    auxScore.setDescricaoErro(String.format("%.1f", v)+" Mil");
-                }
+                scores.add(auxScore);
             }
-            else{
-                auxScore.setDescricaoErro(String.valueOf(auxScore.getValorErro()));
-            }
-            scores.add(auxScore);
         }
-        card++;
-        //card 2
-        for(i = 10; i <=50; i += 10){
-            auxScore = new PontuacaoM();
-            int val = i*1000;
-            auxScore.setCard(card);
-            auxScore.setValorAcerto(val);
-            auxScore.setValorDesistir(val/2);
-            auxScore.setValorErro(val/4);
-            auxScore.setDescricaoAcerto(i+" Mil");
-            //verifica se o valor é maior que mil para colocar as letras
-            //verifica se é par ou impar
-            if(auxScore.getValorDesistir() % 1000 == 0){
-                int v = auxScore.getValorDesistir()/1000;
-                auxScore.setDescricaoDesistir(v+" Mil");
-            }
-            else{
-                float v = Float.valueOf((float)auxScore.getValorDesistir()  / 1000);
-                auxScore.setDescricaoDesistir(String.format("%.1f", v)+" Mil");
-            }
-            //erro
-            //verifica se é par ou impar
-            if(auxScore.getValorErro() % 1000 == 0){
-                int v = auxScore.getValorErro()/1000;
-                auxScore.setDescricaoErro(v+" Mil");
-            }
-            else{
-                float v = Float.valueOf((float)auxScore.getValorErro()  / 1000);
-                auxScore.setDescricaoErro(String.format("%.1f", v)+" Mil");
-            }
-            scores.add(auxScore);
-        }
-        card++;
-        //card 3
-        for(i = 100; i <=500; i += 100){
-            auxScore = new PontuacaoM();
-            int val = i*1000;
-            auxScore.setCard(card);
-            auxScore.setValorAcerto(val);
-            auxScore.setValorDesistir(val/2);
-            auxScore.setValorErro(val/4);
-            auxScore.setDescricaoAcerto(i+" Mil");
-            //verifica se o valor é maior que mil para colocar as letras
-            //verifica se é par ou impar
-            if(auxScore.getValorDesistir() % 1000 == 0){
-                int v = auxScore.getValorDesistir()/1000;
-                auxScore.setDescricaoDesistir(v+" Mil");
-            }
-            else{
-                float v = Float.valueOf((float)auxScore.getValorDesistir()  / 1000);
-                auxScore.setDescricaoDesistir(String.format("%.1f", v)+" Mil");
-            }
-            //erro
-            //verifica se é par ou impar
-            if(auxScore.getValorErro() % 1000 == 0){
-                int v = auxScore.getValorErro()/1000;
-                auxScore.setDescricaoErro(v+" Mil");
-            }
-            else{
-                float v = Float.valueOf((float)auxScore.getValorErro()  / 1000);
-                auxScore.setDescricaoErro(String.format("%.1f", v)+" Mil");
-            }
-            scores.add(auxScore);
-        }
-        card++;
         //1 milhão
         auxScore = new PontuacaoM();
-        auxScore.setCard(card);
-        auxScore.setValorAcerto(1000000);
-        auxScore.setValorDesistir(500000);
-        auxScore.setValorErro(250000);
-        auxScore.setDescricaoAcerto("1 Mi");
-        auxScore.setDescricaoDesistir("500 Mil");
-        auxScore.setDescricaoErro("250 Mil");
+        auxScore.setCard(4);
+        auxScore.setValorAcerto(ptsDesc.getCard4Acertarpts());
+        auxScore.setValorDesistir(ptsDesc.getCard4Pararpts());
+        auxScore.setValorErro(ptsDesc.getCard4Errarpts());
+        auxScore.setDescricaoAcerto(ptsDesc.getCard4Acertartxt());
+        auxScore.setDescricaoDesistir(ptsDesc.getCard4Parartxt());
+        auxScore.setDescricaoErro(ptsDesc.getCard4Errartxt());
         scores.add(auxScore);
     }
 

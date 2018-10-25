@@ -26,20 +26,20 @@ public class PlacarA extends ArrayAdapter<JogadorM> {
         }
 
         //pegar os dados do objeto e setar os elementos visuais da celula
-        TextView pos = (TextView)celulaReciclado.findViewById(R .id.cel_placar_pos);
-        TextView jogador = (TextView)celulaReciclado.findViewById(R.id.cel_placar_nome);
-        TextView acertos = (TextView)celulaReciclado.findViewById(R.id.cel_placar_acertos);
-        TextView tempo = (TextView)celulaReciclado.findViewById(R.id.cel_placar_tempo);
-        TextView faltas = (TextView)celulaReciclado.findViewById(R.id.cel_placar_faltas);
-        TextView pontos = (TextView)celulaReciclado.findViewById(R.id.cel_placar_pontos);
+        TextView pos = celulaReciclado.findViewById(R .id.cel_placar_pos);
+        TextView jogador = celulaReciclado.findViewById(R.id.cel_placar_nome);
+        TextView acertos = celulaReciclado.findViewById(R.id.cel_placar_acertos);
+        TextView tempo = celulaReciclado.findViewById(R.id.cel_placar_tempo);
+        TextView faltas = celulaReciclado.findViewById(R.id.cel_placar_faltas);
+        TextView pontos = celulaReciclado.findViewById(R.id.cel_placar_pontos);
 
         //seta os dados
         pos.setText(String.valueOf(posicao+1));
         jogador.setText(jog.getNome()+" - "+jog.getClasse()+" ("+jog.getAno()+"º Ano)");
         acertos.setText(jog.getAcertos()+"/16");
-        tempo.setText(jog.getTempo()+"seg/"+jog.getMediaTempo()+"seg");
+        tempo.setText(jog.getTempoTxt()+"/"+jog.getMediatempoTxt());
         faltas.setText(jog.getFaltas()+"/16");
-        pontos.setText(String.valueOf(jog.getPontos()));
+        pontos.setText(String.valueOf(jog.getPontos().intValue()));
 
         return celulaReciclado;
 
