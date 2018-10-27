@@ -34,7 +34,7 @@ public class PlacarA extends ArrayAdapter<JogadorM> {
         TextView pontos = celulaReciclado.findViewById(R.id.cel_placar_pontos);
 
         //seta os dados
-        pos.setText(String.valueOf(posicao+1));
+        pos.setText(String.valueOf(posicao+1)+"º");
         jogador.setText(jog.getNome()+" - "+jog.getClasse()+" ("+jog.getAno()+"º Ano)");
         acertos.setText(jog.getAcertos()+"/16");
         tempo.setText(jog.getTempoTxt()+"/"+jog.getMediatempoTxt());
